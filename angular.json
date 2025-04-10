@@ -7,6 +7,14 @@
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
+      "i18n": {
+        "sourceLocale": "en-US",
+      "locales": {
+        "fr": {
+          "translation": "src/locale/messages.fr.xlf"
+        }
+      }
+      },
       "prefix": "",
       "schematics": {},
       "architect": {
@@ -45,6 +53,29 @@
             "browser": "src/main.ts"
           },
           "configurations": {
+
+            "fr-production": {
+    "aot": true,
+    "outputPath": "dist/angular-course-fr",
+    "i18nMissingTranslation": "ignore",
+    "localize": ["fr"],
+    "optimization": true,
+    "sourceMap": false,
+    "namedChunks": false,
+    "extractLicenses": true,
+    "budgets": [
+
+      
+    ]
+  },
+
+
+
+
+
+
+
+
             "production": {
               "budgets": [
                 {
@@ -63,7 +94,16 @@
               "sourceMap": false,
               "namedChunks": false,
               "extractLicenses": true
-            }
+            },
+
+          "fr": {
+        
+        "aot": true,
+        "outputPath": "dist/angular-course-fr",
+        "i18nMissingTranslation": "ignore",
+        "localize": ["fr"]
+      }
+
           }
         },
         "serve": {
@@ -74,6 +114,9 @@
           "configurations": {
             "production": {
               "buildTarget": "angular-course:build:production"
+            },
+            "fr":{
+              "buildTarget": "angular-course:build:fr"
             }
           }
         },
