@@ -25,14 +25,20 @@ import {
 import {Course} from '../../model/course';
 import {CourseImageComponent} from '../course-image/course-image.component';
 import { CoursesService } from '../courses.service';
+import { NgIf } from '@angular/common';
 // import { COURSES_SERVICE } from '../app.component';
 
 @Component({
     selector: 'course-card',
     templateUrl: './course-card.component.html',
     styleUrls: ['./course-card.component.css'],
-    standalone: false,
-    // changeDetection: ChangeDetectionStrategy.OnPush
+
+    imports:[
+        NgIf
+    ],
+
+    standalone: true,
+
 })
 
 

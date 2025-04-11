@@ -6,6 +6,8 @@ import { APP_CONFIG, AppConfig, CONFIG_TOKEN } from './config';
 import { createCustomElement } from '@angular/elements';
 import { CourseTitleComponent } from './courses/course-title/course-title.component';
 
+import { NgForOf } from '@angular/common';
+
 
 
 
@@ -13,8 +15,14 @@ import { CourseTitleComponent } from './courses/course-title/course-title.compon
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
-    standalone: false,
-    // changeDetection: ChangeDetectionStrategy.OnPush
+    providers: [CoursesService],
+    imports:[
+      
+      NgForOf
+    ],
+    
+    standalone: true,
+
     
 
 })
@@ -42,6 +50,13 @@ export class AppComponent implements OnInit{
 
     customElements.define('course-title', htmlElement);
 
+    console.log('Courses data:', this.courses);
+
+
+    setTimeout(() => {
+      this.cd.detectChanges();
+    }, 0);
+    
 
   }
 
